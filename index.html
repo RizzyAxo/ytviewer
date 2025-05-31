@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YT Video Watcher Unblocked</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f9f9;
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+            color: #222;
+        }
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        input[type="text"] {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        input[type="text"]:focus {
+            border-color: #1a73e8;
+            outline: none;
+            box-shadow: 0 0 6px rgba(26, 115, 232, 0.4);
+        }
+        button {
+            display: block;
+            margin: 0 auto 40px auto;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background-color: #1a73e8;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(26, 115, 232, 0.3);
+        }
+        button:hover {
+            background-color: #155ab6;
+        }
+        h2 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1120px;
+            height: 630px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: none;
+            background: #000;
+        }
+        @media (max-width: 768px) {
+            iframe {
+                height: 360px;
+            }
+            input[type="text"] {
+                max-width: 100%;
+            }
+            button {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>YT Video Watcher Unblocked</h1>
+    <input type="text" id="youtubeLink" placeholder="Enter YouTube link here" />
+    <button onclick="embedVideo()">LOAD VIDEO</button>
+
+    <h2>Video:</h2>
+    <iframe id="videoIframe" src="" allowfullscreen></iframe>
+
+    <script>
+        function embedVideo() {
+            const link = document.getElementById('youtubeLink').value.trim();
+            if (!link.includes('v=')) {
+                alert('Please enter a valid YouTube video link.');
+                return;
+            }
+            // Extract video ID after 'v=' and before any '&'
+            let videoId = link.split('v=')[1];
+            const ampersandPosition = videoId.indexOf('&');
+            if (ampersandPosition !== -1) {
+                videoId = videoId.substring(0, ampersandPosition);
+            }
+            const embedLink = `https://www.youtube-nocookie.com/embed/${videoId}`;
+            document.getElementById('videoIframe').src = embedLink;
+        }
+    </script>
+</body>
+</html>
